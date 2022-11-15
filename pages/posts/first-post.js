@@ -12,6 +12,8 @@ export default function FirstPost() {
       <Script
         src="https://connect.facebook.net/en_US/sdk.js"
         // A value of lazyOnload tells Next.js to load this particular script lazily during browser idle time
+        // your page speed isn't penalized for images outside the viewport. Images load as they are scrolled into viewport.
+
         strategy="lazyOnLoad"
         // onLoad is used to run any JavaScript code immediately after the script has finished loading
         onLoad={() =>

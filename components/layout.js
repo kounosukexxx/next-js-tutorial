@@ -13,6 +13,7 @@ export default function Layout({ children, home }) {
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        // TODO: meta dataは一旦気にしなくてよさそう
         <meta
           name="description"
           content='Learn how to build a personal...'
@@ -54,7 +55,7 @@ export default function Layout({ children, home }) {
             </Link>
             <h2 className={utilStyles.headingLg}>
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <p className={utilStyles.colorInherit}>{name}</p>
               </Link>
             </h2>
           </>
