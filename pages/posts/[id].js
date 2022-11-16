@@ -1,9 +1,9 @@
-// the file makes dynamic routes because the file name is [id].js 
-import Layout from '../../components/layout';
-import { getAllPostIds, getPostData } from '../../lib/posts';
-import Head from 'next/head';
-import Date from '../../components/date';
-import utilStyles from '../../styles/utils.module.css';
+// the file makes dynamic routes because the file name is [id].js
+import Layout from "../../components/layout";
+import { getAllPostIds, getPostData } from "../../lib/posts";
+import Head from "next/head";
+import Date from "../../components/date";
+import utilStyles from "../../styles/utils.module.css";
 
 export default function Post({ postData }) {
   return (
@@ -25,7 +25,7 @@ export default function Post({ postData }) {
       </article>
       <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </Layout>
-  )
+  );
 }
 
 // In development (npm run dev or yarn dev), getStaticPaths runs on every request.

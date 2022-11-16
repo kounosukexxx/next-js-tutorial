@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import Head from 'next/head';
-import Script from 'next/script';
-import Layout from '../../components/layout';
+import Link from "next/link";
+import Head from "next/head";
+import Script from "next/script";
+import Layout from "../../components/layout";
 
 export default function FirstPost() {
   return (
@@ -16,9 +16,7 @@ export default function FirstPost() {
 
         strategy="lazyOnLoad"
         // onLoad is used to run any JavaScript code immediately after the script has finished loading
-        onLoad={() =>
-          console.log(`script loaded`)
-        }
+        onLoad={() => console.log(`script loaded`)}
       />
       <h1>First Post</h1>
       <h2>
