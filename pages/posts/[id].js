@@ -28,6 +28,9 @@ export default function Post({ postData }) {
   )
 }
 
+// In development (npm run dev or yarn dev), getStaticPaths runs on every request.
+// In production, getStaticPaths runs at build time
+
 // must return an array of possible values for id
 export async function getStaticPaths() {
   const paths = getAllPostIds();
@@ -48,3 +51,7 @@ export async function getStaticProps({ params }) {
     },
   };
 }
+
+// fallback
+// false: any paths not returned by getStaticPaths will result in a 404 page.
+// true, blocking
