@@ -4,8 +4,17 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
 import Date from "../../components/date";
 import utilStyles from "../../styles/utils.module.css";
+import { GetStaticProps, GetStaticPaths } from "next";
 
-export default function Post({ postData }) {
+export default function Post({
+  postData,
+}: {
+  postData: {
+    title: string;
+    date: string;
+    id: string;
+  };
+}) {
   return (
     <Layout>
       <Head>
@@ -32,25 +41,26 @@ export default function Post({ postData }) {
 // In production, getStaticPaths runs at build time
 
 // must return an array of possible values for id
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticProps = async () => {
   const paths = getAllPostIds();
   return {
     paths,
     fallback: false,
   };
-}
+};
 
 // pass data to default function Post()
 // params contains id because the file name is [id].js
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   // add await because getPostData() is async function
-  const postData = await getPostData(params.id);
+  // TODO: ?つけたらどうなる？
+  const postData = await getPostData(params?.id as string);
   return {
     props: {
       postData,
     },
   };
-}
+};
 
 // fallback
 // false: any paths not returned by getStaticPaths will result in a 404 page.

@@ -3,10 +3,19 @@ import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 import Date from "../components/date";
+import { GetStaticProps } from "next";
 
 import { getSortedPostsData } from "../lib/posts";
 
-export default function Home({ allPostsData }) {
+export default function Home({
+  allPostsData,
+}: {
+  allPostsData: {
+    date: string;
+    title: string;
+    id: string;
+  }[];
+}) {
   return (
     <Layout home>
       <Head>
@@ -42,14 +51,14 @@ export default function Home({ allPostsData }) {
 // getStaticProps runs at build time in production, and…
 // Inside the function, you can fetch external data and send it as props to the page.
 // it runs in server-side
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData,
     },
   };
-}
+};
 
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
